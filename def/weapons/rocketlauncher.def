@@ -70,14 +70,14 @@ entityDef weapon_rocketlauncher
 	"joint_world_flash"			"muzzle_flash"
 
 	"inv_weapon"				"weapon_rocketlauncher"
-	"inv_start_ammo_rocketlauncher"	"10"
+	"inv_start_ammo_rocketlauncher"	"40"
 	"inv_item"					"1"
 	"inv_icon"					"gfx/guis/hud/icons/item_rocket.tga"
 	"inv_name"					"#str_107409"	
 
-	"fireRate"					".8"
-	"reloadRate"				".8"
-	"spread"					"0"
+	"fireRate"					".1"
+	"reloadRate"				".1"
+	"spread"					"5"
 
 	"ammoRegenStep"				"1"
 	"ammoRegenTime"				"1750"
@@ -325,8 +325,8 @@ entityDef projectile_rocket
 	"def_damage"				"damage_rocketDirect"
 	"def_splash_damage"			"damage_rocketSplash"
 																											
-	"speed"						"9"
-	"fuse"						"6"
+	"speed"						"300"
+	"fuse"						"10"
 	"push"						"48000"
 	
 							
@@ -395,8 +395,8 @@ entityDef damage_rocketDirect
 entityDef damage_rocketDirect_mp
 {
 	"inherit"					"damage_rocketDirect"
-	"damage"					"100"
-	"knockback"					"100"
+	"damage"					"500"
+	"knockback"					"400"
 }
 
 entityDef damage_rocketSplash 
@@ -419,7 +419,7 @@ entityDef damage_rocketSplash
 entityDef damage_rocketSplash_mp
 {
 	"inherit"					"damage_rocketSplash"
-	"knockback"					"100"
-	"damage"					"100"
-	"radius"					"120"
+	"knockback"					"300"
+	"damage"					"000"
+	"radius"					"200"
 }
