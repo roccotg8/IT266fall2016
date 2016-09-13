@@ -332,7 +332,7 @@ entityDef projectile_rocket
 							
 	"detonate_on_fuse"			"1"
 	"detonate_on_death"			"0"
-	"detonate_on_world"			"1"
+	"detonate_on_world"			"0"
 	"detonate_on_actor"			"1"
 	"detonate_on_bounce"		"1"
 								
@@ -420,6 +420,6 @@ entityDef damage_rocketSplash_mp
 {
 	"inherit"					"damage_rocketSplash"
 	"knockback"					"300"
-	"damage"					"000"
+	"damage"					"010"
 	"radius"					"200"
 }
