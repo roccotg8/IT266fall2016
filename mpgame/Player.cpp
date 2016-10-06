@@ -7408,8 +7408,9 @@ idPlayer::CrashLand
 Check for hard landings that generate sound events
 =================
 */
-/*
+
 void idPlayer::CrashLand( const idVec3 &oldOrigin, const idVec3 &oldVelocity ) {
+	return;
 	idVec3		origin, velocity;
 	idVec3		gravityVector, gravityNormal;
 	float		delta;
@@ -7558,7 +7559,7 @@ void idPlayer::CrashLand( const idVec3 &oldOrigin, const idVec3 &oldVelocity ) {
 		StartSound ( "snd_land_soft", SND_CHANNEL_ANY, 0, false, NULL );				 
 	}
 }
-*/
+
 
 /*
 ===============
