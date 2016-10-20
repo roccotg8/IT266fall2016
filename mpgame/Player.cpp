@@ -12002,6 +12002,7 @@ void idPlayer::NonLocalClientPredictionThink( void ) {
 	if ( zoom != zoomed ) {
 		if ( zoom ) {
 			ProcessEvent( &EV_Player_ZoomIn );
+			wsfl.altFire = true;
 		} else {
 			ProcessEvent( &EV_Player_ZoomOut );
 		}

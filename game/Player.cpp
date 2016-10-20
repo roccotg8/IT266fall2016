@@ -9396,7 +9396,7 @@ void idPlayer::Think( void ) {
 	}
 	
 	// zooming
-	bool zoom = (usercmd.buttons & BUTTON_ZOOM) && CanZoom();
+	bool zoom = (usercmd.buttons & BUTTON_ZOOM);// && CanZoom();
 	if ( zoom != zoomed ) {
 		if ( zoom ) {
 			ProcessEvent ( &EV_Player_ZoomIn );
