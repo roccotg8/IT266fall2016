@@ -165,10 +165,10 @@ stateResult_t rvWeaponShotgun::State_Fire( const stateParms_t& parms ) {
 		case STAGE_INIT:
 			if(wsfl.altFire) {
 				nextAttackTime = gameLocal.time + (fireRate * 0.2 * owner->PowerUpModifier ( PMOD_FIRERATE ));
-				Attack(true, hitscans, spread, 0, 1.0f);
+				Attack(true, hitscans, spread, 0, 1.0f * (1 + gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber]fragCount));
 			}	else {
 				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
-				Attack( false, hitscans, spread, 0, 1.0f );
+				Attack( false, hitscans, spread, 0, 1.0f * (1 + gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber]fragCount));
 			}
 
 			PlayAnim( ANIMCHANNEL_ALL, "fire", 0 );	
