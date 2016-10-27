@@ -659,6 +659,8 @@ public:
 // squirrel: Mode-agnostic buymenus
 	bool			isBuyingAllowedRightNow;
 
+	mpPlayerState_t	playerState[ MAX_CLIENTS ];
+
 	void			OpenLocalBuyMenu( void );
 	void			RedrawLocalBuyMenu( void );
 	void			GiveCashToTeam( int team, float cashAmount );
@@ -677,7 +679,7 @@ private:
 
 	int				pingUpdateTime;			// time to update ping
 
-	mpPlayerState_t	playerState[ MAX_CLIENTS ];
+	
 
 	// game state
 	rvGameState*	gameState;

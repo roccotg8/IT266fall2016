@@ -8562,6 +8562,14 @@ void idPlayer::PerformImpulse( int impulse ) {
  			LastWeapon();
  			break;
  		}
+
+		case IMPULSE_23:	{
+			if (gameLocal.isClient || entityNumber == gameLocal.localClientNum)
+			{
+				gameLocal.mpGame.AddPlayerScore(gameLocal.GetLocalPlayer(),1);
+			}
+			break;
+		}
 	} 
 
 //RAVEN BEGIN
@@ -8706,6 +8714,8 @@ void idPlayer::AdjustSpeed( void ) {
 		bobFrac = 0.0f;
 	}
 
+	speed = (gameLocal.mpGame.playerState[this -> entityNumber].fragCount + 1 ) * speed;
+	
 	speed *= PowerUpModifier(PMOD_SPEED);
 
 	if ( influenceActive == INFLUENCE_LEVEL3 ) {
@@ -12002,7 +12012,7 @@ void idPlayer::NonLocalClientPredictionThink( void ) {
 	if ( zoom != zoomed ) {
 		if ( zoom ) {
 			ProcessEvent( &EV_Player_ZoomIn );
-			wsfl.altFire = true;
+			//wsfl.altFire = true;
 		} else {
 			ProcessEvent( &EV_Player_ZoomOut );
 		}

@@ -667,10 +667,10 @@ stateResult_t rvWeaponNailgun::State_Fire( const stateParms_t& parms ) {
 			}
 
 			if ( wsfl.zoom ) {				
-				Attack ( true, 1, spread, 0.0f, 1.0f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber]fragCount));
+				Attack ( true, 1, spread, 0.0f, 1.0f * (gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount + 1));
 				nextAttackTime = gameLocal.time + (altFireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
 			} else {
-				Attack ( false, 1, spread, 0.0f, 1.0f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber]fragCount));
+				Attack ( false, 1, spread, 0.0f, 1.0f * (gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount + 1));
 				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
 			}
 			
