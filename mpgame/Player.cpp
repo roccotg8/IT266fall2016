@@ -11636,6 +11636,7 @@ void idPlayer::Event_ZoomIn ( void ) {
 		zoomFov.Init( gameLocal.time, SEC2MS(t), currentFov, weapon->GetZoomFov() );
 				
 		zoomed = true;
+		alternateFire = true;	//rtg
 		if ( weapon->GetZoomGui() )	{
 			weapon->GetZoomGui()->HandleNamedEvent ( "zoomIn" );
 			weaponViewModel->StartSound ( "snd_zoomin", SND_CHANNEL_ANY, 0, false, NULL );
@@ -11683,6 +11684,7 @@ void idPlayer::Event_ZoomOut ( void ) {
 			// this should only happen in fringe cases - zooming out while dead, etc
 			zoomFov.Init( gameLocal.time, 0, DefaultFov(), DefaultFov() );
 			zoomed = false;
+			alternateFire = false;	//rtg
 			return;
 		}
 
@@ -11693,6 +11695,7 @@ void idPlayer::Event_ZoomOut ( void ) {
 
 		zoomFov.Init( gameLocal.time, SEC2MS(t), currentFov, DefaultFov() );
 		zoomed = false;
+		alternateFire = false;	//rtg
 		if ( weapon->GetZoomGui() )	{
 			weaponViewModel->StartSound( "snd_zoomout", SND_CHANNEL_ANY, 0, false, NULL );
 		}

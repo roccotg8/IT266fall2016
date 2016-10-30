@@ -645,6 +645,7 @@ public:
  	bool					IsRespawning	( void );
  	bool					IsInTeleport	( void );
 	bool					IsZoomed		( void );
+	bool					IsAlternateFire	( void );	//rtg
 	bool					IsFlashlightOn	( void );
 	virtual bool			IsCrouching		( void ) const;
 	
@@ -829,6 +830,7 @@ private:
 
 	bool					flashlightOn;
 	bool					zoomed;
+	bool					alternateFire; //rtg8
 
 	bool					reloadModel;
 
@@ -1168,6 +1170,11 @@ ID_INLINE bool idPlayer::IsLeader( void ) {
 
 ID_INLINE bool idPlayer::IsZoomed( void ) {
 	return zoomed;
+}
+
+ID_INLINE bool idPlayer::IsAlternateFire(void)		//rtg
+{
+	return alternateFire;
 }
 
 ID_INLINE bool idPlayer::IsFlashlightOn( void ) {

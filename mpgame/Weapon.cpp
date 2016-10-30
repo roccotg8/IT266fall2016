@@ -1027,6 +1027,7 @@ void rvWeapon::Think ( void ) {
 	
 	// Update the zoom variable before updating the script
 	wsfl.zoom = owner->IsZoomed( );
+	wsfl.alternateFire = owner->IsAlternateFire();	//rtg
 
 	// Only update the state loop on new frames
  	if ( gameLocal.isNewFrame ) {
