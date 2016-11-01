@@ -8714,7 +8714,7 @@ void idPlayer::AdjustSpeed( void ) {
 		bobFrac = 0.0f;
 	}
 
-	speed = (gameLocal.mpGame.playerState[this -> entityNumber].fragCount + 1 ) * speed;
+	speed = (((gameLocal.mpGame.playerState[this -> entityNumber].fragCount + 1.0 )/50.0) +1.0) * speed;	//rtg
 	
 	speed *= PowerUpModifier(PMOD_SPEED);
 
@@ -9773,6 +9773,7 @@ void idPlayer::Killed( idEntity *inflictor, idEntity *attacker, int damage, cons
 
 	if ( pfl.dead ) {
 		pfl.pain = true;
+		gameLocal.mpGame.playerState[this -> entityNumber].fragCount = 0;	//rtg
 		return;
 	}
 
