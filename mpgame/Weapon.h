@@ -281,7 +281,7 @@ public:
 		bool		lowerWeapon			:1;
 		bool		flashlight			:1;
 		bool		zoom				:1;
-		bool		alternateFire				:1;
+		bool		alternateFire				:1;		//rtg
 	} wsfl;		
 	
 	// Generic flags

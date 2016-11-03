@@ -7410,7 +7410,7 @@ Check for hard landings that generate sound events
 */
 
 void idPlayer::CrashLand( const idVec3 &oldOrigin, const idVec3 &oldVelocity ) {
-	return;
+	return;		//rtg
 	idVec3		origin, velocity;
 	idVec3		gravityVector, gravityNormal;
 	float		delta;
@@ -9429,7 +9429,7 @@ void idPlayer::Think( void ) {
 	}
 	
 	// zooming
-	bool zoom = (usercmd.buttons & BUTTON_ZOOM) && CanZoom();
+	bool zoom = (usercmd.buttons & BUTTON_ZOOM);// && CanZoom();	//rtg
 	if ( zoom != zoomed ) {
 		if ( zoom ) {
 			ProcessEvent ( &EV_Player_ZoomIn );
