@@ -9429,7 +9429,20 @@ void idPlayer::Think( void ) {
 	}
 	
 	// zooming
-	bool zoom = (usercmd.buttons & BUTTON_ZOOM);// && CanZoom();	//rtg
+	bool zoom = (usercmd.buttons & BUTTON_ZOOM) && CanZoom();	//rtg
+	bool altfire = (usercmd.buttons & BUTTON_ZOOM);				//rtg
+	if (altfire != alternateFire)								//rtg
+	{
+		if (altfire)
+		{
+			alternateFire = true;
+		}
+		else
+		{
+			alternateFire = false;
+		}
+	}
+
 	if ( zoom != zoomed ) {
 		if ( zoom ) {
 			ProcessEvent ( &EV_Player_ZoomIn );
