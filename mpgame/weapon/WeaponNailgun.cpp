@@ -666,11 +666,11 @@ stateResult_t rvWeaponNailgun::State_Fire( const stateParms_t& parms ) {
 				PlayCycle ( ANIMCHANNEL_LEGS, "fire_slow", 4 );
 			}
 
-			if ( wsfl.zoom ) {				
-				Attack ( true, 1, spread, 0.0f, 1.0f * (gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount + 1));
-				nextAttackTime = gameLocal.time + (altFireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
+			if ( wsfl.alternateFire ) {				
+				Attack ( false, 1, spread, 0.0f, 1.0f * (gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount + 1));		//rtg
+				nextAttackTime = gameLocal.time + (fireRate + (gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount) * owner->PowerUpModifier ( PMOD_FIRERATE ));		//rtg
 			} else {
-				Attack ( false, 1, spread, 0.0f, 1.0f * (gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount + 1));
+				Attack ( false, 1, spread, 0.0f, 1.0f * (gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount + 1));		//rtg
 				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
 			}
 			

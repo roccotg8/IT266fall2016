@@ -144,8 +144,15 @@ stateResult_t rvWeaponGrenadeLauncher::State_Fire ( const stateParms_t& parms ) 
 	};	
 	switch ( parms.stage ) {
 		case STAGE_INIT:
-			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
-			Attack ( false, 1, spread + gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount, 0, 1.0f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount));
+			if(wsfl.alternateFire)		//rtg
+			{
+				nextAttackTime = gameLocal.time + ((fireRate * 1.5) * owner->PowerUpModifier ( PMOD_FIRERATE ));
+				Attack ( false, 1, spread + gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount, 0, 1.5f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount));		//rtg
+			}	else {
+				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
+				Attack ( false, 1, spread + gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount, 0, 1.0f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount));		//rtg
+			}
+
 			PlayAnim ( ANIMCHANNEL_ALL, GetFireAnim(), 0 );	
 			return SRESULT_STAGE ( STAGE_WAIT );
 	

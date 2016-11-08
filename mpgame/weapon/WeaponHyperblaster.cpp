@@ -229,7 +229,8 @@ stateResult_t rvWeaponHyperblaster::State_Fire ( const stateParms_t& parms ) {
 		case STAGE_INIT:
 			SpinUp ( );
 			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
-			Attack ( false, 1, spread, 0, 1.0f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount));
+			Attack ( false, 1, (spread * gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount), 0, 1.0f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount));		//rtg
+			
 			if ( ClipSize() ) {
 				viewModel->SetShaderParm ( HYPERBLASTER_SPARM_BATTERY, (float)AmmoInClip()/ClipSize() );
 			} else {

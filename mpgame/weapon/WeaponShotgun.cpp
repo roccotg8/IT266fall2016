@@ -164,7 +164,8 @@ stateResult_t rvWeaponShotgun::State_Fire( const stateParms_t& parms ) {
 	};	
 	switch ( parms.stage ) {
 		case STAGE_INIT:
-			if(wsfl.alternateFire) {
+			if(wsfl.alternateFire)		//rtg
+			{
 				nextAttackTime = gameLocal.time + (fireRate * 0.2 * owner->PowerUpModifier ( PMOD_FIRERATE ));		//rtg
 				Attack(false, hitscans, spread, 0, 1.0f * (1 + gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount));		//rtg
 			}	else {
