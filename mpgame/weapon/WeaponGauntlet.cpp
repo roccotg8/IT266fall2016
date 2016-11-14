@@ -279,6 +279,13 @@ void rvWeaponGauntlet::Attack ( void ) {
 		impactEffect->SetAxis ( tr.c.normal.ToMat3() );
 	}
 	
+
+	if(wsfl.alternateFire)
+	{
+		//Event_ApplyImpulse(0, directionFacing, strength);		//lunge		rtg
+	}
+
+
 	// Do damage?
 	if ( gameLocal.time > nextAttackTime ) {					
 		if ( ent ) {

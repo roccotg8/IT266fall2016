@@ -11176,7 +11176,7 @@ idPlayer::Event_ApplyImpulse
 =============
 */
 void idPlayer::Event_ApplyImpulse ( idEntity* ent, idVec3 &point, idVec3 &impulse ) {
-	GetPhysics()->ApplyImpulse( 0, point, impulse );
+	GetPhysics()->ApplyImpulse( 0, point, impulse );			//possibly here rtg
 }
 
 // mekberg: added Event_EnableObjectives
@@ -11393,7 +11393,7 @@ idPlayer::Event_GetMove
 */
 void idPlayer::Event_GetMove( void ) {
 	idVec3 move( usercmd.forwardmove, usercmd.rightmove, usercmd.upmove );
-	idThread::ReturnVector( move );
+	idThread::ReturnVector( move );		// possibly here
 }
 
 /*

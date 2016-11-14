@@ -146,7 +146,7 @@ stateResult_t rvWeaponGrenadeLauncher::State_Fire ( const stateParms_t& parms ) 
 		case STAGE_INIT:
 			if(wsfl.alternateFire)		//rtg
 			{
-				nextAttackTime = gameLocal.time + ((fireRate * 1.5) * owner->PowerUpModifier ( PMOD_FIRERATE ));
+				nextAttackTime = gameLocal.time + ((fireRate * 5) * owner->PowerUpModifier ( PMOD_FIRERATE ));
 				Attack ( false, 1, spread + gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount, 0, 1.5f * (1+gameLocal.mpGame.playerState[gameLocal.GetLocalPlayer() -> entityNumber].fragCount));		//rtg
 			}	else {
 				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
